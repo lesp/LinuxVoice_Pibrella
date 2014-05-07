@@ -11,13 +11,13 @@ sequence = 2
 
 #Green on for 10 seconds
 pibrella.light.green.on()
-time.sleep(10)
+time.sleep(delay)
 pibrella.light.green.off()
 #Amber for 2 seconds
 pibrella.light.amber.on()
-time.sleep(2)
+time.sleep(sequence)
 pibrella.light.amber.off()
 #Red for 10 seconds.
 pibrella.light.red.on()
-time.sleep(10)
+time.sleep(delay)
 pibrella.light.red.off()
