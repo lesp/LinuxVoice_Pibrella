@@ -1,6 +1,6 @@
 import pibrella
 import time
-import signals
+#import signals
 
 #Create variables to control times
 
@@ -9,9 +9,12 @@ sequence = 2
 
 #Create functions for ease of use
 
+def button_changed(pin):
+    for i in range(1,3):
+        traffic_lights()
+
 def traffic_lights():
     #Create the sequence
-    while pin.read() == 0:
         #Green on for 10 seconds
         print("GREEN")
         pibrella.light.green.on()
@@ -27,21 +30,11 @@ def traffic_lights():
         pibrella.light.red.on()
         time.sleep(delay)
         #Don't turn off the red light until the end of the amber sequence.
-        pibrella.light.red.off()
         print("AMBER")
         pibrella.light.amber.on()
         time.sleep(sequence)
         pibrella.light.amber.off()
-
-def crossing():
-    for i in range(0,6):
-        pibrella.light.green,blink(1,1)
-
-def button_changed(pin):
-    if pin.read() == 1:
-        crossing()
-    else:
-        traffic_lights()
+        pibrella.light.red.off()
 
 pibrella.button.changed(button_changed)
-   
+
