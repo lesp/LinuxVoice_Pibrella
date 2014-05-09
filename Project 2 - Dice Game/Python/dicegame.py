@@ -9,8 +9,10 @@ def dice():
     for i in range(0,(guess)):
         time.sleep(0.5)
         pibrella.light.on()
+        pibrella.buzzer.note(1)
         time.sleep(0.5)
         pibrella.light.off()
+        pibrella.buzzer.off()
 
 while True:
     while pibrella.button.read() == 1:
