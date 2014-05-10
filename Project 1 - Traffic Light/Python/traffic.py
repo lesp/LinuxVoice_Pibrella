@@ -26,13 +26,12 @@ def traffic_lights():
         pibrella.light.red.on()
         time.sleep(delay)
         #Don't turn off the red light until the end of the amber sequence.
-        print("AMBER")
+        print("AMBER & RED TOGETHER")
         pibrella.light.amber.on()
         time.sleep(sequence)
         pibrella.light.amber.off()
         pibrella.light.red.off()
-        pibrella.light.green.on()
-        time.sleep
+
 
 while True:
     while pibrella.button.read() == 1:
